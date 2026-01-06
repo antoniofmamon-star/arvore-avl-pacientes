@@ -10,8 +10,6 @@ class Paciente:
 
 
 
-# No da arvore
-
 class NoAVL:
     def __init__(self, paciente):
         self.paciente = paciente
@@ -57,7 +55,7 @@ class ArvoreAVL:
 
         return y
 
-    # inserção AVL
+    # Inserção AVL
     def inserir(self, no, paciente):
         if not no:
             return NoAVL(paciente)
@@ -67,7 +65,7 @@ class ArvoreAVL:
         elif paciente.numero_processo > no.paciente.numero_processo:
             no.direita = self.inserir(no.direita, paciente)
         else:
-            print(" Número de processo já existente.")
+            print("❌ Número de processo já existente.")
             return no
 
         no.altura = 1 + max(self.altura(no.esquerda), self.altura(no.direita))
@@ -93,7 +91,7 @@ class ArvoreAVL:
     def inserir_paciente(self, paciente):
         self.raiz = self.inserir(self.raiz, paciente)
 
-    # Percurso em ordem
+    # percurso em ordem
     def em_ordem(self, no):
         if no:
             self.em_ordem(no.esquerda)
@@ -101,11 +99,10 @@ class ArvoreAVL:
             self.em_ordem(no.direita)
 
 
-
 # Menu
 
 def menu():
-    print("\n SISTEMA DE GESTÃO DE PACIENTES")
+    print("\n🏥 SISTEMA DE GESTÃO DE PACIENTES")
     print("1 - Inserir paciente")
     print("2 - Listar pacientes (ordenados)")
     print("0 - Sair")
@@ -127,22 +124,21 @@ if __name__ == "__main__":
                 paciente = Paciente(numero, nome, idade)
                 arvore.inserir_paciente(paciente)
 
-                print(" Paciente inserido com sucesso!")
+                print("✅ Paciente inserido com sucesso!")
 
             except ValueError:
-                print(" Dados inválidos. Tente novamente.")
+                print("❌ Dados inválidos. Tente novamente.")
 
         elif opcao == "2":
-            print("\n Lista de pacientes (ordenados por número de processo):")
+            print("\n📋 Lista de pacientes (ordenados por número de processo):")
             if arvore.raiz is None:
                 print("Nenhum paciente registado.")
             else:
                 arvore.em_ordem(arvore.raiz)
 
         elif opcao == "0":
-            print(" A sair do sistema...")
+            print("👋 A sair do sistema...")
             break
 
         else:
-            print(" Opção inválida.")
-
+            print("❌ Opção inválida.")
