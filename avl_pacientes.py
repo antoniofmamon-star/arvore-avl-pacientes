@@ -1,6 +1,4 @@
-# =========================
-# Classe Paciente
-# =========================
+
 class Paciente:
     def __init__(self, numero_processo, nome, idade):
         self.numero_processo = numero_processo
@@ -11,9 +9,9 @@ class Paciente:
         return f"Processo: {self.numero_processo} | Nome: {self.nome} | Idade: {self.idade}"
 
 
-# =========================
-# Nó da Árvore AVL
-# =========================
+
+# No da arvore
+
 class NoAVL:
     def __init__(self, paciente):
         self.paciente = paciente
@@ -22,9 +20,7 @@ class NoAVL:
         self.altura = 1
 
 
-# =========================
-# Árvore AVL
-# =========================
+
 class ArvoreAVL:
     def __init__(self):
         self.raiz = None
@@ -61,7 +57,7 @@ class ArvoreAVL:
 
         return y
 
-    # Inserção AVL
+    # inserção AVL
     def inserir(self, no, paciente):
         if not no:
             return NoAVL(paciente)
@@ -105,9 +101,9 @@ class ArvoreAVL:
             self.em_ordem(no.direita)
 
 
-# =========================
-# Programa Principal (Menu)
-# =========================
+
+# Menu
+
 def menu():
     print("\n SISTEMA DE GESTÃO DE PACIENTES")
     print("1 - Inserir paciente")
@@ -149,3 +145,4 @@ if __name__ == "__main__":
 
         else:
             print(" Opção inválida.")
+
